@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "io.github.jahongk.deeplinksbasics",
+    "sha256_cert_fingerprints":
+    ["EF:1F:F9:A5:13:8F:01:15:15:0A:3E:2C:B0:04:7E:EC:1E:86:AA:AD:03:4F:29:83:73:13:5B:12:85:E0:21:6D"]
+  }
+}]
