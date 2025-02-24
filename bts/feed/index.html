@@ -1,22 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Redirecting to feed.md</title>
+    <title>BTS 페이지</title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <script>
-        // 쿼리 파라미터 가져오기
-        const query = window.location.search;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-size: 20px; /* 기본 폰트 크기 */
+        }
 
-        // 리디렉션 URL 생성
-        const redirectUrl = "feed.md" + query;
+        h1 {
+            font-size: 4rem; /* 기본 폰트 크기의 2배 */
+        }
 
-        // 리디렉션
-        window.location.href = redirectUrl;
-    </script>
+        p {
+            font-size: 3rem; /* 기본 폰트 크기와 동일 */
+        }
+
+        /* parameter-list 내부 div 요소 스타일 */
+        #parameter-list div {
+            font-size: 3rem; /* parameter-list 내부 div 요소의 폰트 크기 */
+            margin-bottom: 10px; /* 각 파라미터 사이의 간격 */
+        }
+
+        /* 모바일 기기용 스타일 */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px; /* 모바일에서는 기본 폰트 크기를 18px로 조정 */
+            }
+
+            h1 {
+                font-size: 3rem; /* 모바일에서는 h1 폰트 크기를 3rem으로 조정 */
+            }
+
+            p {
+                font-size: 2rem; /* 모바일에서는 p 폰트 크기를 2rem으로 조정 */
+            }
+
+            /* 모바일 기기에서 parameter-list 내부 div 요소 스타일 */
+            #parameter-list div {
+                font-size: 2rem; /* 모바일에서 parameter-list 내부 div 요소의 폰트 크기 */
+                margin-bottom: 5px; /* 모바일에서 각 파라미터 사이의 간격 */
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to feed.md...</p>
+    <h1>BTS / FEED</h1>
+    
+    <div id="parameter-list">
+        <!-- 파라미터와 값이 여기에 출력됩니다. -->
+    </div>
+
+    <script>
+        // 1. 쿼리 문자열 가져오기
+        const queryString = window.location.search;
+
+        // 2. URLSearchParams 객체 생성
+        const urlParams = new URLSearchParams(queryString);
+
+        // 3. 파라미터와 값 추출 및 출력
+        const parameterListDiv = document.getElementById('parameter-list');
+
+        if (queryString) {
+            urlParams.forEach((value, key) => {
+                const parameterDiv = document.createElement('div');
+                parameterDiv.textContent = `${key}: ${value}`;
+                parameterListDiv.appendChild(parameterDiv);
+            });
+        } else {
+            const parameterDiv = document.createElement('div');
+            parameterDiv.textContent = `No query parameters found`;
+            parameterListDiv.appendChild(parameterDiv);
+        }
+    </script>
 </body>
 </html>
