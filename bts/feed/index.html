@@ -1,68 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BTS 페이지</title>
+    <title>Redirecting to feed.md</title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-size: 16px; /* 기본 폰트 크기 */
-        }
+    <script>
+        // 쿼리 파라미터 가져오기
+        const query = window.location.search;
 
-        h1 {
-            font-size: 2rem; /* 기본 폰트 크기의 2배 */
-        }
+        // 리디렉션 URL 생성
+        const redirectUrl = "feed.md" + query;
 
-        p {
-            font-size: 1rem; /* 기본 폰트 크기와 동일 */
-        }
-
-        /* 모바일 기기용 스타일 */
-        @media (max-width: 768px) {
-            body {
-                font-size: 14px; /* 모바일에서는 기본 폰트 크기를 14px로 조정 */
-            }
-
-            h1 {
-                font-size: 1.8rem; /* 모바일에서는 h1 폰트 크기를 1.8rem으로 조정 */
-            }
-
-            p {
-                font-size: 0.9rem; /* 모바일에서는 p 폰트 크기를 0.9rem으로 조정 */
-            }
-        }
-    </style>
+        // 리디렉션
+        window.location.href = redirectUrl;
+    </script>
 </head>
 <body>
-    <h1>BTS / FEED</h1>
-    
-    <div id="parameter-list">
-        <!-- 파라미터와 값이 여기에 출력됩니다. -->
-    </div>
-
-    <script>
-        // 1. 쿼리 문자열 가져오기
-        const queryString = window.location.search;
-
-        // 2. URLSearchParams 객체 생성
-        const urlParams = new URLSearchParams(queryString);
-
-        // 3. 파라미터와 값 추출 및 출력
-        const parameterListDiv = document.getElementById('parameter-list');
-
-        if (queryString) {
-            urlParams.forEach((value, key) => {
-                const parameterDiv = document.createElement('div');
-                parameterDiv.textContent = `${key}: ${value}`;
-                parameterListDiv.appendChild(parameterDiv);
-            });
-        } else {
-            const parameterDiv = document.createElement('div');
-            parameterDiv.textContent = `No query parameters found`;
-            parameterListDiv.appendChild(parameterDiv);
-        }
-    </script>
+    <p>Redirecting to feed.md...</p>
 </body>
 </html>
