@@ -2,10 +2,36 @@
 <html>
 <head>
     <title>BTS 페이지</title>
-    <meta http-equiv="refresh" content="0; url=/bts/feed/">
+    <!-- <meta http-equiv="refresh" content="0; url=/bts/feed/"> -->
 </head>
 <body>
     <h1>BTS 페이지</h1>
-    <p>이 페이지는 /bts/feed/ 로 리다이렉트됩니다.</p>
+    <p>FEED</p>
+    <div id="parameter-list">
+        <!-- 파라미터와 값이 여기에 출력됩니다. -->
+    </div>
+
+    <script>
+        // 1. 쿼리 문자열 가져오기
+        const queryString = window.location.search;
+
+        // 2. URLSearchParams 객체 생성
+        const urlParams = new URLSearchParams(queryString);
+
+        // 3. 파라미터와 값 추출 및 출력
+        const parameterListDiv = document.getElementById('parameter-list');
+
+        if (queryString) {
+            urlParams.forEach((value, key) => {
+                const parameterDiv = document.createElement('div');
+                parameterDiv.textContent = `${key}: ${value}`;
+                parameterListDiv.appendChild(parameterDiv);
+            });
+        } else {
+            const parameterDiv = document.createElement('div');
+            parameterDiv.textContent = `No query parameters found`;
+            parameterListDiv.appendChild(parameterDiv);
+        }
+    </script>
 </body>
 </html>
